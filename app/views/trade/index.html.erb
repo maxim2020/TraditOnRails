@@ -1,0 +1,43 @@
+<%= javascript_include_tag "socket.io", "smoothie", "trade" %>
+
+<h1>Trade #index</h1>
+
+<div class="row">
+
+	<div class="twelve columns panel">
+		<h4>#Info</h4>
+		<h5>Live rate</h5>
+		<dic class="row">
+			<div class="four columns">
+				<label id="currencylive1">#loading</label>
+			</div>
+			<div class="four columns">
+				<label id="currencylive2">#loading</label>
+			</div>
+			<div class="four columns">
+				<label id="currencylive3">#loading</label>
+			</div>
+			<br/>
+			<h5>My wallet</h5>
+			<dic class="row">
+				<% for currency in @currencies %>
+				<div class="four columns">
+					<label style="font-weight:bold" id="<%= currency.name %>label"><%= currency.name %>: <%= currency.number %></label>
+				</div>
+				<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="seven columns panel">
+		<h4>#Live graph</h4>
+		<canvas id="testcanvas" width="520" height="300"></canvas>
+		<br />
+		<label>#DATA</label>
+		<label id="rateLabel">#DATA</label>
+	</div>
+
+	<div id="tradeDiv" class="four columns panel">
+		<%= render :partial => "trade", :object  => @currencies %>
+	</div>
+</div>

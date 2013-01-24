@@ -1,0 +1,2 @@
+module NestedCurrenciesHelper
+end

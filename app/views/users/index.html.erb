@@ -1,0 +1,58 @@
+<%= stylesheet_link_tag "bootstrap.min" %>
+<%= javascript_include_tag "bootstrap.min" %>
+
+<h1>User #index</h1>
+
+<div class="row">
+	<h4>#My Account</h4>
+	<div class="twelve columns panel callout radius">
+		<div class="row">
+            <div class="six columns">
+                <h5>Info</h5>
+                <label style="color: #fff" >Firstname: <strong><%= @user.firstname %></strong></label>
+                <label style="color: #fff" >Lastname:  <strong><%= @user.lastname %></strong> </label>
+                <label style="color: #fff" >Email: <strong><%= @user.email %></strong> </label>
+            </div>
+            <div class="six columns">
+                <h5>My wallet</h5>
+                <% for currency in @user.currencies %>
+                	<label style="color: #fff" > <%= currency["name"] %>: <strong><%= currency["number"] %></strong> </label>
+                <% end %>
+            </div>
+	    </div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+		<h4>#Transactions</h4>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Amount (f)</th>
+                <th>Currency (f)</th>
+                <th>Rate (f)</th>
+                <th>Amount (t)</th>
+                <th>Currency (t)</th>
+                <th>Rate (t)</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+           	  <% for transaction in @transactions %>
+               <tr>
+                <td><%= transaction.action %></td>
+                <td><strong><%= transaction.amount_from %></strong></td>
+                <td><%= transaction.currency_from %></td>
+                <td><%= transaction.rate_from %></td>
+                <td><strong><%= transaction.amount_to %></strong></td>
+                <td><%= transaction.currency_to %></td>
+                <td><%= transaction.rate_to %></td>
+                <td><%= transaction.date %></td>
+               </tr>              
+              <% end %>
+            </tbody>
+        </table>
+	</div>
+	
+</div>

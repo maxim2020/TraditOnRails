@@ -1,0 +1,62 @@
+<h1>User #new</h1>
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div class="error_messages">
+	<h2>Form is invalid</h2>
+	<ul>
+		<% for message in @user.errors.full_messages %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="panel">
+	<h4>Create a new account</h4>
+	<div class="row">
+		<div class="four columns offset-by-one">
+			<p>
+				<%= f.label :firstname %>
+				<%= f.text_field :firstname %>
+			</p>
+			<p>
+				<%= f.label :lastname %>
+				<%= f.text_field :lastname %>
+			</p>
+			<p>
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</p>
+			<p>
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</p>
+		</div>
+		<div class="four column offset-by-two end">
+
+			<% for currency in @refcurrencies %>
+
+			<%= f.fields_for :nested_currencies do |fl| %>
+			<p>
+				<%= fl.label :name, currency.name %>
+				<%= fl.text_field :number %>
+				<%= fl.hidden_field :name, :value => currency.name %>
+			</p>
+			<% end %>
+			<% end %>
+			<p>
+				<%= f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation %>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="two columns offset-by-nine">
+			<%= f.submit "Create!", :class =>"radius button right" %>
+		</div>
+	</div>
+</div>
+<% end %>
+

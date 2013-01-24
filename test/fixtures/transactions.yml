@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  action: MyString
+  amount_from: 1
+  amount_to: 1
+  email: MyString
+  date: 
+  currency_from: MyString
+  currency_to: MyString
+  user: MyString
+  rate_from: 1.5
+  rate_to: 1.5
+
+two:
+  action: MyString
+  amount_from: 1
+  amount_to: 1
+  email: MyString
+  date: 
+  currency_from: MyString
+  currency_to: MyString
+  user: MyString
+  rate_from: 1.5
+  rate_to: 1.5

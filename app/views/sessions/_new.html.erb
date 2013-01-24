@@ -1,0 +1,26 @@
+<div id="loginModal" class="reveal-modal [expand, xlarge, large, medium, small]">
+	<h1>Session #login</h1>
+	<%= form_tag sessions_path do %>
+	<div class="row">
+		<div class="twelve columns">
+			<p>
+				<%= label_tag :email %>
+				<%= text_field_tag :email, params[:email] %>
+			</p>
+			<p>
+				<%= label_tag :password %>
+				<%= password_field_tag :password %>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="two columns offset-by-ten">
+			<p>
+				<%= submit_tag "Login", :class =>"radius button right" %>
+			</p>
+		</div>
+	</div>
+
+	<% end %>
+	<a class="close-reveal-modal">&#215;</a>
+</div>

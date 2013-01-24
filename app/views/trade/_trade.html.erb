@@ -1,0 +1,51 @@
+<%= javascript_include_tag "trade_partial" %>
+
+<div id="alert-box" class="alert-box" style="text-align:center">
+	<div id="flash_notice">Traded!</div>
+	<a href="" class="close">&times;</a>
+</div>
+
+<div id="alert-box-alert" class="alert-box alert" style="text-align:center">
+	<div id="flash_notice">Error - info missing!</div>
+	<a href="" class="close">&times;</a>
+</div>
+
+<h4>#Trade</h4>
+
+<label>Action</label>
+<select name="user[action]" disabled="true">
+	<option>-- action --</option>
+	<option>BUY</option>
+	<option selected="selected">SELL</option>
+</select>
+<br/>
+<br/>
+
+<label>Currency</label>
+<select id="currency_from_select">
+	<option>-- currency --</option>
+	<% for currency in @currencies %>
+	<option value="<%= currency.name %>" ><%= currency.name %></option>
+	<% end %>
+</select>
+<br/>
+<br/>
+
+<label>Amount</label>
+<select id='quantity_select'>
+	<option>-- quantity --</option>
+</select>
+<br/>
+<br/>
+
+<label>Currency</label>
+<select id="currency_to_select">
+	<option>-- currency --</option>
+	<% for currency in @currencies %>
+	<option value="<%= currency.name %>"><%= currency.name %></option>
+	<% end %>
+</select>
+<br/>
+<br/>
+
+<input id="tradeBtn" type="submit" value="GO!" class="button" />
